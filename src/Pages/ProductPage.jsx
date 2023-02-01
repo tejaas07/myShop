@@ -12,11 +12,6 @@ const ProductPage = (props) => {
   const { type, filterVal, id, featuredProduct, featuredPost } = useSelector(
     (state) => state.material
   );
-  // console.log(type);
-  // console.log(filterVal);
-  // console.log(id);
-  console.log(featuredProduct);
-  console.log(featuredPost.find((ele) => ele.id == 2));
   const advanceFilter = (arr) => {
     return featuredPost.find((ele) => ele.productId == arr);
   };

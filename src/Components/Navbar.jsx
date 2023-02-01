@@ -16,7 +16,6 @@ const Navbar = () => {
   useEffect(() => {
     fetchFilter();
   }, []);
-  console.log("HI");
   const fetchFilter = async () => {
     await axios
       .get(
@@ -24,7 +23,6 @@ const Navbar = () => {
         { headers: Request.headers }
       )
       .then((response) => {
-        console.log(response.data.featured);
         dispatch(setFeatureList({ features: response.data.featured }));
       });
   };

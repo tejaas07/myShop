@@ -21,7 +21,6 @@ const SideBar = () => {
         { headers: Request.headers }
       )
       .then((response) => {
-        // console.log(response.data);
         setMaterials(response.data.material);
         dispatch(setMaterial({ material: response.data.material }));
       });
@@ -32,7 +31,6 @@ const SideBar = () => {
     if (name == "all") {
       customType = "all";
     }
-    // console.log(customType);
     dispatch(setFilter({ type: customType, value: name, id: id }));
   };
 

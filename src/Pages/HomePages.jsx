@@ -20,6 +20,7 @@ const HomePages = () => {
       )
       .then((response) => {
         setProduct(response.data.products);
+        localStorage.setItem("Product", JSON.stringify(response.data.products));
       });
   };
 

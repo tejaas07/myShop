@@ -52,7 +52,7 @@ const SideBar = () => {
       <div className="sidebar-list-child">
         Color
         {Color.map((val, i) => (
-          <div>
+          <div key={i}>
             <button
               className="buttonSidebar"
               onClick={() => filterFn(val.color, val.id, "color")}

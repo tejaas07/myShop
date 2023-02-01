@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { decrement, increment } from "../Redux/cartSlice";
+import { increment } from "../Redux/cartSlice";
 import Color from "../assets/Data/Color";
 const ProductPage = (props) => {
   const [material, setMaterial] = useState([]);
@@ -31,14 +31,17 @@ const ProductPage = (props) => {
             : param.materialId == id
         )
         .map((val, i) => (
-          <div className="productCard">
+          <div key={i} className="productCard">
             <span className="img__wrap">
               <img
                 src={val.image}
                 alt=""
                 onClick={() => dispatch(increment())}
               />
-              <p class="img__description" onClick={() => dispatch(increment())}>
+              <p
+                className="img__description"
+                onClick={() => dispatch(increment())}
+              >
                 Add to cart
               </p>
             </span>
@@ -47,11 +50,13 @@ const ProductPage = (props) => {
               <div className="productDescr">
                 <span>
                   {Color.map((col, i) => (
-                    <div>{col.id == val.colorId ? col.color : ""}</div>
+                    <div key={i}>{col.id == val.colorId ? col.color : ""}</div>
                   ))}
                 </span>
                 {materialList.map((data, i) => (
-                  <div>{val.materialId == data.id ? data.name : ""}</div>
+                  <div key={i}>
+                    {val.materialId == data.id ? data.name : ""}
+                  </div>
                 ))}
               </div>
               <div className="card-price">INR {val.price}</div>

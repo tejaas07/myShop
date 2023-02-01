@@ -8,15 +8,10 @@ export const counterSlice = createSlice({
   reducers: {
     increment: (state) => {
       state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+      localStorage.setItem("Cart", JSON.stringify(state.value));
     },
   },
 });
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment } = counterSlice.actions;
 
 export default counterSlice.reducer;
